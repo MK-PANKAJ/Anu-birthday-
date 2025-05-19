@@ -1,0 +1,43 @@
+/* Base & Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: sans-serif; line-height: 1.6; background: #fdf6f0; color: #333; }
+
+/* Header */
+header { text-align: center; padding: 2rem; }
+#greeting { font-size: 1.5rem; }
+#countdown { font-size: 2rem; margin-top: 0.5rem;
+  animation: pulse 1s infinite alternate;
+}
+
+/* Timeline */
+#timeline { padding: 2rem; }
+.milestones { display: flex; overflow-x: auto; gap: 1rem; }
+.milestone { width: 150px; cursor: pointer; transition: transform 0.3s; }
+.milestone:hover { transform: scale(1.1); }
+
+/* Quiz */
+#quiz { padding: 2rem; }
+#quizResult { margin-top: 1rem; font-weight: bold; }
+
+/* Gallery */
+#gallery { padding: 2rem; }
+.photos { display: flex; flex-wrap: wrap; gap: 1rem; }
+.photo { position: relative; width: 120px; cursor: pointer; }
+.photo img { width: 100%; border-radius: 0.5rem; }
+
+/* Mini‑Game */
+#minigame { padding: 2rem; }
+#scene { position: relative; width: 100%; height: 300px; background: url('scene.png') no-repeat center; }
+
+/* Modal */
+.modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5); display: flex; align-items: center;
+  justify-content: center; }
+.modal.hidden { display: none; }
+.modal-content { background: white; padding: 2rem; border-radius: 1rem; }
+
+/* Animations */
+@keyframes pulse {
+  from { opacity: 1; }
+  to   { opacity: 0.6; }
+}
