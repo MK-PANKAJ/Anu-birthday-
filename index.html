@@ -2,70 +2,91 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy Birthday!</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <h1 id="greeting">Hey there, someone extraordinary turns a year wiser today…</h1>
-    <div id="countdown">Loading countdown...</div>
-  </header>
+  <!-- Landing Section -->
+  <section id="landing" class="section landing">
+    <header>
+      <h1 id="greeting">Hey there, someone extraordinary turns a year wiser today…</h1>
+      <div id="countdown" class="countdown">Loading countdown...</div>
+    </header>
+  </section>
 
-  <main>
-    <!-- Our Story Timeline -->
-    <section id="timeline">
-      <h2>Our Story</h2>
-      <div class="milestones">
-        <div class="milestone" data-message="You make every day sparkle!">
-          <img src="photo1.jpg" alt="First chat"/>
-          <p>First Chat</p>
-        </div>
-        <!-- add more .milestone items similarly -->
+  <!-- Our Story Timeline -->
+  <section id="timeline" class="section timeline">
+    <h2>Our Story</h2>
+    <div class="milestones">
+      <div class="milestone" data-message="You make every day sparkle!">
+        <img src="photo1.jpg" alt="First chat" />
+        <p>First Chat</p>
       </div>
-    </section>
-
-    <!-- Personality Quiz -->
-    <section id="quiz">
-      <h2>Which Birthday Cake Flavor Are You?</h2>
-      <form id="flavorQuiz">
-        <label><input type="radio" name="flavor" value="velvet"> Velvet Rose</label>
-        <label><input type="radio" name="flavor" value="choco"> Chocolate Fudge</label>
-        <!-- more options -->
-        <button type="button" id="quizSubmit">See Your Result</button>
-      </form>
-      <div id="quizResult"></div>
-    </section>
-
-    <!-- Memory Gallery -->
-    <section id="gallery">
-      <h2>Memory Gallery</h2>
-      <div class="photos">
-        <div class="photo" data-note="So much fun!">
-          <img src="photo2.jpg" alt="Group selfie"/>
-        </div>
-        <!-- more .photo items -->
+      <div class="milestone" data-message="Remember our fun group outing?">
+        <img src="photo2.jpg" alt="Group outing" />
+        <p>Group Outing</p>
       </div>
-    </section>
-
-    <!-- Mini‑Game Hidden Objects -->
-    <section id="minigame">
-      <h2>Find the Birthday Surprise</h2>
-      <div id="scene">
-        <!-- Illustrated scene with hidden items -->
+      <div class="milestone" data-message="Your achievement inspired me!">
+        <img src="photo3.jpg" alt="Your award" />
+        <p>Your Award</p>
       </div>
-    </section>
-  </main>
+      <!-- Add more milestones as needed -->
+    </div>
+  </section>
 
-  <footer>
-    <button id="openConfession">A Special Note</button>
+  <!-- Personality Quiz -->
+  <section id="quiz" class="section quiz">
+    <h2>Which Birthday Cake Flavor Are You?</h2>
+    <form id="flavorQuiz" class="quiz-form">
+      <label><input type="radio" name="flavor" value="velvet"> Velvet Rose</label>
+      <label><input type="radio" name="flavor" value="choco"> Chocolate Fudge</label>
+      <label><input type="radio" name="flavor" value="berry"> Berry Bliss</label>
+      <label><input type="radio" name="flavor" value="citrus"> Citrus Zing</label>
+      <button type="button" id="quizSubmit" class="btn">See Your Result</button>
+    </form>
+    <div id="quizResult" class="quiz-result"></div>
+  </section>
+
+  <!-- Memory Gallery -->
+  <section id="gallery" class="section gallery">
+    <h2>Memory Gallery</h2>
+    <div class="photos">
+      <div class="photo" data-note="So much fun!">
+        <img src="photo4.jpg" alt="Group selfie" />
+      </div>
+      <div class="photo" data-note="Great laughs here!">
+        <img src="photo5.jpg" alt="At the café" />
+      </div>
+      <div class="photo" data-note="Unforgettable day!">
+        <img src="photo6.jpg" alt="Picnic" />
+      </div>
+      <!-- Add more photos -->
+    </div>
+  </section>
+
+  <!-- Mini‑Game: Hidden Objects -->
+  <section id="minigame" class="section minigame">
+    <h2>Find the Birthday Surprise</h2>
+    <div id="scene" class="scene">
+      <!-- Use a background image with hidden-item divs positioned absolutely -->
+      <div class="hidden-item" style="top: 40px; left: 120px;" data-found="Cupcake!">🧁</div>
+      <div class="hidden-item" style="top: 200px; left: 300px;" data-found="Balloon!">🎈</div>
+      <div class="hidden-item" style="top: 100px; left: 450px;" data-found="Gift!">🎁</div>
+      <!-- Add up to 10 -->
+    </div>
+  </section>
+
+  <!-- Confession Modal -->
+  <section id="confession" class="section confession">
+    <button id="openConfession" class="btn">A Special Note</button>
     <div id="confessionModal" class="modal hidden">
       <div class="modal-content">
         <span class="close">&times;</span>
         <p>I hope today reminds you how much joy you bring into the world. Spending time with you is one of my favorite parts of life—here’s to many more moments and smiles.</p>
       </div>
     </div>
-  </footer>
+  </section>
 
   <script src="script.js"></script>
 </body>
