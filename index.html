@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday!</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1 id="greeting">Hey there, someone extraordinary turns a year wiser today…</h1>
+    <div id="countdown">Loading countdown...</div>
+  </header>
+
+  <main>
+    <!-- Our Story Timeline -->
+    <section id="timeline">
+      <h2>Our Story</h2>
+      <div class="milestones">
+        <div class="milestone" data-message="You make every day sparkle!">
+          <img src="photo1.jpg" alt="First chat"/>
+          <p>First Chat</p>
+        </div>
+        <!-- add more .milestone items similarly -->
+      </div>
+    </section>
+
+    <!-- Personality Quiz -->
+    <section id="quiz">
+      <h2>Which Birthday Cake Flavor Are You?</h2>
+      <form id="flavorQuiz">
+        <label><input type="radio" name="flavor" value="velvet"> Velvet Rose</label>
+        <label><input type="radio" name="flavor" value="choco"> Chocolate Fudge</label>
+        <!-- more options -->
+        <button type="button" id="quizSubmit">See Your Result</button>
+      </form>
+      <div id="quizResult"></div>
+    </section>
+
+    <!-- Memory Gallery -->
+    <section id="gallery">
+      <h2>Memory Gallery</h2>
+      <div class="photos">
+        <div class="photo" data-note="So much fun!">
+          <img src="photo2.jpg" alt="Group selfie"/>
+        </div>
+        <!-- more .photo items -->
+      </div>
+    </section>
+
+    <!-- Mini‑Game Hidden Objects -->
+    <section id="minigame">
+      <h2>Find the Birthday Surprise</h2>
+      <div id="scene">
+        <!-- Illustrated scene with hidden items -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <button id="openConfession">A Special Note</button>
+    <div id="confessionModal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>I hope today reminds you how much joy you bring into the world. Spending time with you is one of my favorite parts of life—here’s to many more moments and smiles.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
