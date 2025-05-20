@@ -75,7 +75,7 @@ document.querySelectorAll('.hidden-item').forEach(item => {
   alert("🎉 You found all the surprises! 🎉");
 
   // Replace this with your actual link
-  const pdfLink = "https://example.com/your-surprise.pdf";
+  const pdfLink = "https://heyzine.com/flip-book/1922cca5f5.html";
 
   // Prompt user to visit the PDF link
   const goToPdf = confirm("Want to see your birthday surprise now?");
