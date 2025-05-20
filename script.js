@@ -96,18 +96,29 @@ const closeBtn = modal.querySelector('.close');
 openBtn.addEventListener('click', () => modal.classList.remove('hidden'));
 closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
 
-// ======= Smart Autoplay for Birthday Song =======
-const birthdayAudio = document.getElementById('birthdayAudio');
-birthdayAudio.loop = true;
+// ======= Smart Audio Play =======
+document.addEventListener('DOMContentLoaded', () => {
+  const birthdayAudio = document.getElementById('birthdayAudio');
+  birthdayAudio.volume = 0.7;
 
-// Try autoplay immediately
-birthdayAudio.play().catch(() => {
-  // If blocked, wait for first user interaction
-  const unlockAudio = () => {
-    birthdayAudio.play().catch(err => console.log("Still blocked:", err));
-    document.removeEventListener('click', unlockAudio);
-    document.removeEventListener('touchstart', unlockAudio); // for mobile
-  };
-  document.addEventListener('click', unlockAudio);
-  document.addEventListener('touchstart', unlockAudio);
+  // Try to play immediately
+  const playPromise = birthdayAudio.play();
+  if (playPromise !== undefined) {
+    playPromise
+      .then(() => {
+        // Autoplay succeeded
+        console.log('Audio autoplay succeeded');
+      })
+      .catch(() => {
+        // Autoplay was blocked; wait for user gesture
+        console.log('Autoplay blocked, waiting for interaction');
+        const unlock = () => {
+          birthdayAudio.play().catch(err => console.log('Play still blocked:', err));
+          document.removeEventListener('click', unlock);
+          document.removeEventListener('touchstart', unlock);
+        };
+        document.addEventListener('click', unlock, { once: true });
+        document.addEventListener('touchstart', unlock, { once: true });
+      });
+  }
 });
