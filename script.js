@@ -96,29 +96,43 @@ const closeBtn = modal.querySelector('.close');
 openBtn.addEventListener('click', () => modal.classList.remove('hidden'));
 closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
 
-// ======= Smart Audio Play =======
+// ======= Smart Autoplay + Fallback Button for Birthday Song =======
 document.addEventListener('DOMContentLoaded', () => {
-  const birthdayAudio = document.getElementById('birthdayAudio');
-  birthdayAudio.volume = 0.7;
+  const audio = document.getElementById('birthdayAudio');
+  const btn = document.getElementById('playAudioBtn');
+  audio.volume = 0.7;
 
-  // Try to play immediately
-  const playPromise = birthdayAudio.play();
-  if (playPromise !== undefined) {
-    playPromise
-      .then(() => {
-        // Autoplay succeeded
-        console.log('Audio autoplay succeeded');
-      })
-      .catch(() => {
-        // Autoplay was blocked; wait for user gesture
-        console.log('Autoplay blocked, waiting for interaction');
-        const unlock = () => {
-          birthdayAudio.play().catch(err => console.log('Play still blocked:', err));
-          document.removeEventListener('click', unlock);
-          document.removeEventListener('touchstart', unlock);
-        };
-        document.addEventListener('click', unlock, { once: true });
-        document.addEventListener('touchstart', unlock, { once: true });
-      });
-  }
+  // Try to autoplay
+  const tryPlay = audio.play();
+  if (tryPlay !== undefined) {
+    tryPlay
+      .then(() => {
+        // Autoplay worked—no button needed
+        console.log('🎵 Autoplay succeeded');
+      })
+      .catch(() => {
+        // Autoplay blocked—show our button
+        console.log('🔇 Autoplay blocked, showing play button');
+        btn.classList.add('show');
+
+        // On click or touch, play & hide button
+        const startAudio = () => {
+          audio.play().catch(e => console.error('Still blocked:', e));
+          btn.classList.remove('show');
+          btn.removeEventListener('click', startAudio);
+          btn.removeEventListener('touchstart', startAudio);
+        };
+
+        btn.addEventListener('click', startAudio);
+        btn.addEventListener('touchstart', startAudio);
+      });
+  }
+
+  // Optional: if you want the button to appear after any user interaction,
+  // even if autoplay somehow didn’t fire its catch:
+  document.addEventListener('click', () => {
+    if (audio.paused && !btn.classList.contains('show')) {
+      btn.classList.add('show');
+    }
+  }, { once: true });
 });
