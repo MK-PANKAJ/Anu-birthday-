@@ -177,3 +177,10 @@ h2 { margin-bottom: 1rem; font-size: 1.75rem; }
 .hidden {
   display: none;
 }
+
+#flipbookContainer {
+  width: 100%;
+  max-width: 800px;
+  height: 600px;
+  margin-top: 2rem;
+}
