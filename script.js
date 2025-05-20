@@ -72,20 +72,17 @@ document.querySelectorAll('.hidden-item').forEach(item => {
       foundCount++;
       alert(item.dataset.found);
       if (foundCount === totalItems) {
-  alert("🎉 You found all the surprises! 🎉");
-  const bookSection = document.getElementById('bookSurprise');
-  bookSection.classList.remove('hidden');
+  alert("🎉 You found all the surprises! 🎉");
 
-  // Initialize FlipbookJS
-  Flipbook("#flipbookContainer", {
-    pdf: "your-surprise.pdf", // adjust path if needed
-    propertiesCallback: (props) => {
-      props.coverColor = "#fff8e1";
-      props.backgroundColor = "#fce4ec";
-      props.textColor = "#5a189a";
-      return props;
-    }
-  });
+  // Replace this with your actual link
+  const pdfLink = "https://example.com/your-surprise.pdf";
+
+  // Prompt user to visit the PDF link
+  const goToPdf = confirm("Want to see your birthday surprise now?");
+
+  if (goToPdf) {
+    window.open(pdfLink, "_blank");
+  }
 }
 
     }
