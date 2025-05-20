@@ -5,6 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy Birthday!</title>
   <link rel="stylesheet" href="styles.css" />
+
+   <!-- ▶ Play‑Audio Button Styles -->
+  <style>
+    #playAudioBtn {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0,0,0,0.8);
+      color: #fff;
+      font-size: 1.5rem;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      z-index: 9999;
+      display: none;
+    }
+    #playAudioBtn.show {
+      display: block;
+    }
+  </style>
 </head>
 <body>
   <!-- Landing Section -->
@@ -85,19 +106,18 @@
     </div>
   </section>
 
-   <!-- Audio Player -->
-  <audio
-    id="birthdayAudio"
-    src="Anne-Marie - BIRTHDAY [Official Video] (mp3cut.net) (1).mp3"
-    preload="auto"
-    autoplay
-    loop
-    playsinline
-    controls
-  ></audio>
+   <audio
+    id="birthdayAudio"
+    src="Anne-Marie - BIRTHDAY [Official Video] (mp3cut.net) (1).mp3"
+    preload="auto"
+    loop
+    playsinline
+  ></audio>
 
-  <!-- Your main script -->
-  <script src="script.js"></script>
+  <!-- Fallback “Play” button -->
+  <button id="playAudioBtn">▶ Play Song</button>
+
+  <!-- Your main script -->
+  <script src="script.js"></script>
 </body>
 </html>
-
