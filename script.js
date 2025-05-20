@@ -2,7 +2,7 @@
 const targetDate = new Date();
 // Example of setting exact birth date/time:
 targetDate.setFullYear(2025, 6, 26); // May is month 4 (zero-based)
- targetDate.setHours(0, 0, 0);       // 9:00 AM IST
+ targetDate.setHours(15, 45, 0);       // 9:00 AM IST
 
 function updateCountdown() {
   const now = new Date();
