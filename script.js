@@ -78,7 +78,7 @@ document.querySelectorAll('.hidden-item').forEach(item => {
 
   // Initialize FlipbookJS
   Flipbook("#flipbookContainer", {
-    pdf: "assets/your-surprise.pdf", // adjust path if needed
+    pdf: "your-surprise.pdf", // adjust path if needed
     propertiesCallback: (props) => {
       props.coverColor = "#fff8e1";
       props.backgroundColor = "#fce4ec";
