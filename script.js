@@ -72,8 +72,22 @@ document.querySelectorAll('.hidden-item').forEach(item => {
       foundCount++;
       alert(item.dataset.found);
       if (foundCount === totalItems) {
-        alert("🎉 You found all the surprises! 🎉");
-      }
+  alert("🎉 You found all the surprises! 🎉");
+  const bookSection = document.getElementById('bookSurprise');
+  bookSection.classList.remove('hidden');
+
+  // Initialize FlipbookJS
+  Flipbook("#flipbookContainer", {
+    pdf: "assets/your-surprise.pdf", // adjust path if needed
+    propertiesCallback: (props) => {
+      props.coverColor = "#fff8e1";
+      props.backgroundColor = "#fce4ec";
+      props.textColor = "#5a189a";
+      return props;
+    }
+  });
+}
+
     }
   });
 });
