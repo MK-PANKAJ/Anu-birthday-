@@ -96,43 +96,47 @@ const closeBtn = modal.querySelector('.close');
 openBtn.addEventListener('click', () => modal.classList.remove('hidden'));
 closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
 
-// ======= Smart Autoplay + Fallback Button for Birthday Song =======
+// ======= Autoplay with Two‑Step Fallback =======
 document.addEventListener('DOMContentLoaded', () => {
-  const audio = document.getElementById('birthdayAudio');
-  const btn = document.getElementById('playAudioBtn');
-  audio.volume = 0.7;
+  const audio = document.getElementById('birthdayAudio');
+  const btn   = document.getElementById('playAudioBtn');
+  audio.volume = 0.7;
 
-  // Try to autoplay
-  const tryPlay = audio.play();
-  if (tryPlay !== undefined) {
-    tryPlay
-      .then(() => {
-        // Autoplay worked—no button needed
-        console.log('🎵 Autoplay succeeded');
-      })
-      .catch(() => {
-        // Autoplay blocked—show our button
-        console.log('🔇 Autoplay blocked, showing play button');
-        btn.classList.add('show');
+  // Helper to show button
+  const showButton = () => btn.classList.add('show');
 
-        // On click or touch, play & hide button
-        const startAudio = () => {
-          audio.play().catch(e => console.error('Still blocked:', e));
-          btn.classList.remove('show');
-          btn.removeEventListener('click', startAudio);
-          btn.removeEventListener('touchstart', startAudio);
-        };
+  // Second‑chance play after first user gesture
+  const secondChance = () => {
+    audio.play()
+      .then(() => {
+        console.log('🎵 Autoplay succeeded on second attempt');
+      })
+      .catch(() => {
+        console.log('🔇 Second attempt failed — showing play button');
+        showButton();
+      });
+    // clean up first‑gesture listeners
+    document.removeEventListener('click', secondChance);
+    document.removeEventListener('touchstart', secondChance);
+    document.removeEventListener('scroll', secondChance);
+  };
 
-        btn.addEventListener('click', startAudio);
-        btn.addEventListener('touchstart', startAudio);
-      });
-  }
+  // 1st attempt: autoplay on load
+  audio.play()
+    .then(() => {
+      console.log('🎵 Autoplay succeeded');
+    })
+    .catch(() => {
+      console.log('🔇 Autoplay blocked — waiting for first gesture');
+      // Wait for any user interaction
+      document.addEventListener('click', secondChance, { once: true });
+      document.addEventListener('touchstart', secondChance, { once: true });
+      document.addEventListener('scroll', secondChance, { once: true });
+    });
 
-  // Optional: if you want the button to appear after any user interaction,
-  // even if autoplay somehow didn’t fire its catch:
-  document.addEventListener('click', () => {
-    if (audio.paused && !btn.classList.contains('show')) {
-      btn.classList.add('show');
-    }
-  }, { once: true });
+  // Button click always tries to play (user‑initiated)
+  btn.addEventListener('click', () => {
+    audio.play().catch(err => console.error('Playback still failed:', err));
+    btn.classList.remove('show');
+  });
 });
