@@ -47,6 +47,36 @@ document.getElementById('quizSubmit').addEventListener('click', () => {
       case 'citrus':
         msg = "You’re Citrus Zing: zesty, fresh, and utterly delightful!";
         break;
+      case 'mousse':
+        msg = "You’re Chocolate Mousse: velvety-smooth, indulgently dreamy, and utterly irresistible!";
+        break;
+      case 'redvelvet':
+        msg = "You’re Red Velvet: boldly romantic, luxuriously plush, and strikingly elegant!";
+        break;
+      case 'butterscotch':
+        msg = "You’re Butterscotch: buttery-sweet, warmly nostalgic, and comfortingly golden!";
+        break;
+      case 'rabri':
+        msg = "You’re Rabri: decadently creamy, authentically traditional, and festively rich!";
+        break;
+      case 'oreo':
+        msg = "You’re Chocolate Oreo: playfully crunchy, double-chocolate delightful, and joyously fun!";
+        break;
+      case 'truffle':
+        msg = "You’re Chocolate Truffle: intensely sophisticated, decadently rich, and blissfully smooth!";
+        break;
+      case 'ferrero':
+        msg = "You’re Ferrero Rocher Cake: hazelnut-kissed, opulently golden, and exquisitely indulgent!";
+        break;
+      case 'mango':
+        msg = "You’re Mango Cake: sun-soaked vibrant, refreshingly tropical, and joyously fruity!";
+        break;
+      case 'blackforest':
+        msg = "You’re Black Forest: dark-chocolatey, cherry-kissed, and enchantingly decadent!";
+        break;
+      case 'strawberry':
+        msg = "You’re Strawberry Cake: rosy-sweet, fresh as morning dew, and irresistibly luscious!";
+        break;
     }
   }
   document.getElementById('quizResult').textContent = msg;
