@@ -79,11 +79,18 @@ h2 { margin-bottom: 1rem; font-size: 1.75rem; }
 .gallery { background: #f0f4c3; }
 .photos {
   display: flex;
+  flex-direction: row;
   gap: 1rem;
   overflow-x: auto;
   padding: 1rem;
+  width: 100%;
   max-width: 100%;
+  scroll-behavior: smooth;
 }
+.photos::-webkit-scrollbar {
+  display: none;
+}
+
 .photo {
   flex: 0 0 auto;
   width: 160px;
@@ -92,6 +99,7 @@ h2 { margin-bottom: 1rem; font-size: 1.75rem; }
   width: 100%;
   border-radius: 0.75rem;
 }
+
 .wish-note {
   position: absolute;
   top: 0.5rem;
