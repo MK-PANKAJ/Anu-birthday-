@@ -85,12 +85,17 @@ document.getElementById('quizSubmit').addEventListener('click', () => {
 // ======= Gallery Wish‑Notes =======
 document.querySelectorAll('.photo').forEach(photo => {
   photo.addEventListener('click', () => {
+    // Remove existing wish-notes
+    document.querySelectorAll('.wish-note').forEach(n => n.remove());
+
+    // Add new note to the clicked photo
     const note = document.createElement('div');
     note.className = 'wish-note';
     note.textContent = photo.dataset.note;
     photo.appendChild(note);
   });
 });
+
 
 // ======= Mini‑Game Hidden Objects =======
 let foundCount = 0;
