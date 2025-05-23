@@ -212,19 +212,24 @@ h2 { margin-bottom: 1rem; font-size: 1.75rem; }
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: flex-start;
   gap: 1rem;
-  min-width: 320px;
-  max-width: 400px;
-  text-align: left;
+  min-width: 360px;
+  max-width: 500px;
+  padding: 1rem;
+  background: #fafafa;
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
 .milestone.landscape img {
-  width: 100px;
+  width: 120px;
   height: auto;
-  max-height: 100px;
+  max-height: 120px;
   object-fit: contain;
   border-radius: 0.75rem;
 }
+
 
 .milestone.landscape p {
   margin: 0;
