@@ -210,32 +210,32 @@ h2 { margin-bottom: 1rem; font-size: 1.75rem; }
 
 .milestone.landscape {
   display: flex;
-  flex-direction: row;
+  flex-direction: column; /* Change from row to column */
   align-items: center;
-  justify-content: flex-start;
-  gap: 1rem;
-  min-width: 360px;
-  max-width: 500px;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 300px;
+  max-width: 400px;
   padding: 1rem;
   background: #fafafa;
   border-radius: 1rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  text-align: center;
 }
 
 .milestone.landscape img {
-  width: 120px;
-  height: auto;
-  max-height: 120px;
+  width: 100%;
+  max-height: 160px;
   object-fit: contain;
   border-radius: 0.75rem;
 }
-
 
 .milestone.landscape p {
   margin: 0;
   font-size: 1rem;
   font-weight: 500;
 }
+
 
 
 .wish-note {
