@@ -195,3 +195,27 @@ h2 { margin-bottom: 1rem; font-size: 1.75rem; }
 #playAudioBtn.show {
   display: block;
 }
+
+.milestone.landscape {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  min-width: 320px;
+  max-width: 400px;
+  text-align: left;
+}
+
+.milestone.landscape img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+
+.milestone.landscape p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
