@@ -105,12 +105,14 @@ h2 { margin-bottom: 1rem; font-size: 1.75rem; }
 .wish-note {
   position: absolute;
   top: 0.5rem;
-  left: 0.5rem;
-  background: rgba(209,73,91,0.9);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(209, 73, 91, 0.9);
   color: #fff;
-  padding: 0.25rem 0.5rem;
+  padding: 0.25rem 0.75rem;
   border-radius: 0.5rem;
   animation: fadeIn 0.5s ease-in;
+  white-space: nowrap;
 }
 
 /* =======================
