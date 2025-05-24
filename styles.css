@@ -224,12 +224,14 @@ h2 { margin-bottom: 1rem; font-size: 1.75rem; }
 
 .milestone.landscape img {
   width: 100%;
+  height: auto;
   max-height: 160px;
-  object-fit: cover; /* fills the box edge-to-edge */
+  object-fit: contain; /* show entire image */
   border-radius: 0.75rem;
-  margin: 0; /* remove spacing around image */
+  margin: 0;
   display: block;
 }
+
 
 
 .milestone.landscape p {
