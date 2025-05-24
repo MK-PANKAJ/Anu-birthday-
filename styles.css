@@ -254,19 +254,27 @@ h2 { margin-bottom: 1rem; font-size: 1.75rem; }
   white-space: nowrap;
 }
 
+#mobile-warning {
+  display: none;
+}
+
 @media (max-width: 768px) {
-  body {
+  #main-content {
     display: none;
   }
 
-  body::before {
-    content: "This site is best viewed on a desktop.";
-    display: block;
+  #mobile-warning {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 2rem;
     font-size: 1.5rem;
-    color: #d1495b;
     text-align: center;
-    padding: 4rem 1rem;
+    color: #d1495b;
+    background: #fff3f3;
   }
 }
+
 
 
